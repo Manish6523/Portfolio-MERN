@@ -1,0 +1,33 @@
+.wave .sub_wave:before,
+.wave .sub_wave:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+.wave .sub_wave:before {
+  width: 55%;
+  height: 109%;
+  background-color: rgb(37 37 41) !important;
+  right: -1.5%;
+  top: 60%;
+}
+.wave .sub_wave:after {
+  width: 55%;
+  height: 100%;
+  background-color: rgb(37 37 41);
+  left: -1.5%;
+  top: 40%;
+}
+.wave .sub_wave {
+  position: absolute;
+  height: 134px;
+  width: 100%;
+  background: #18181b;
+  bottom: 0px;
+}
+.wave {
+  position: relative;
+  height: 50%;
+  background: green;
+}
