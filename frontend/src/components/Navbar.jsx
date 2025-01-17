@@ -6,7 +6,7 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState("");
     const [transition, setTransition] = useState("full")
     const toggleHamBar = () => {
-        transition == "0" ? setTransition("full") : setTransition("0")
+        transition === "0" ? setTransition("full") : setTransition("0")
     }
 
     useEffect(() => {
