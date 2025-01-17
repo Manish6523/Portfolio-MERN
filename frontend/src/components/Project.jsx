@@ -7,6 +7,7 @@ import axios from "axios"
 const Project = () => {
 
     let envPassword = import.meta.env.VITE_ADMIN_PASSWORD
+    let host = import.meta.env.VITE_HOST
 
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
@@ -26,7 +27,7 @@ const Project = () => {
     }, [fetch])
 
     const getProjects = async () => {
-        let result = await axios.get("http://localhost:3000/getProjects")
+        let result = await axios.get(`${host}/getProjects`)
         // console.log(result.data)
         setProjects(result.data)
     }

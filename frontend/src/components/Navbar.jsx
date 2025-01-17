@@ -93,7 +93,7 @@ const Navbar = () => {
             </nav>
 
             {
-                <div className={`main-section bg- backdrop-blur-2xl text-white -left-${transition} h-screen w-screen sm:w-[70%] fixed z-[160] transition-all duration-300`}>
+                <div className={`main-section bg- backdrop-blur-2xl text-white -left-${transition} h-screen w-full sm:w-[70%] fixed z-[20] transition-all duration-300`}>
                     <div className="border flex items-center justify-between px-5 py-2">
                         <img onClick={toggleHamBar} className="cursor-pointer size-7 invert" src="cross.png" alt="" />
                         <span className="font-Eagle">Manish Sharma</span>
