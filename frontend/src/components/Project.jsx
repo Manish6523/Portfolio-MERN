@@ -71,7 +71,7 @@ const Project = () => {
             toast.success("Message Sent")
             setadminPanel(false)
             setFetch(!fetch)
-            await axios.post("http://localhost:3000/addProject", {
+            await axios.post(`${host}/addProject`, {
                 name,
                 description,
                 image,
