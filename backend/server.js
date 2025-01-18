@@ -7,7 +7,9 @@ const app = express()
 app.use(express.json({ limit: '50mb' }));
 // app.use(express.bodyParser({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb' }));
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://portfolio-mern-360.onrender.com'],
+}))
 const port = 3000
 
 app.get('/getProjects', cors(), async (req, res) => {

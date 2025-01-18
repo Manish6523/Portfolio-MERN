@@ -20,12 +20,19 @@ const Project = () => {
 
 
     useEffect(() => {
-        return async () => {
-            let result = await axios.get(`${host}/getProjects`)
-            console.log(result.data)
-            setProjects(result.data)
-        }
-    }, [])
+        const fetchProjects = async () => {
+            try {
+                const result = await axios.get(`${host}/getProjects`);
+                console.log(result.data);
+                setProjects(result.data);
+            } catch (error) {
+                console.error('Error fetching projects:', error);
+                toast.error('Failed to fetch projects');
+            }
+        };
+        fetchProjects();
+    }, []);
+
 
     const getProjects = async () => {
         // let result = await axios.get(`${host}/getProjects`)
@@ -69,7 +76,7 @@ const Project = () => {
         else if (image == "") {
             setImage("NotFound.png")
         } else {
-            toast.success("Message Sent")
+            toast.success("Project Added")
             setadminPanel(false)
             await axios.post(`${host}/addProject`, {
                 name,
