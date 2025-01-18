@@ -17,14 +17,13 @@ const Project = () => {
     const [uses, setUses] = useState("")
     const [adminPanel, setadminPanel] = useState(false)
     const [projects, setProjects] = useState(null)
-    const [fetch, setFetch] = useState(false)
 
 
     useEffect(() => {
         return () => {
             getProjects()
         }
-    }, [fetch])
+    }, [])
 
     const getProjects = async () => {
         let result = await axios.get(`${host}/getProjects`)
@@ -70,7 +69,6 @@ const Project = () => {
         } else {
             toast.success("Message Sent")
             setadminPanel(false)
-            setFetch(!fetch)
             await axios.post(`${host}/addProject`, {
                 name,
                 description,
@@ -100,7 +98,7 @@ const Project = () => {
                                 {projects.map((e, index) => {
                                     return (
                                         <>
-                                            <div key={index} className="flip-card overflow- rounded-lg relative">
+                                            <div key={index} className="flip-card overflow-hidden rounded-lg relative">
                                                 <div className="flip-card-inner">
                                                     <div className="flip-card-front bg-black cursor-pointer ">
                                                         {/* decor start */}
@@ -125,7 +123,7 @@ const Project = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img key={index + 2} draggable="false" className='invert lg:hidden flex' src="./decor.png" alt="" />
+                                            <img draggable="false" className='invert lg:hidden flex' src="./decor.png" alt="" />
                                         </>
                                     )
                                 })}
