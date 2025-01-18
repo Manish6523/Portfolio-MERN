@@ -20,15 +20,17 @@ const Project = () => {
 
 
     useEffect(() => {
-        return () => {
-            getProjects()
+        return async () => {
+            let result = await axios.get(`${host}/getProjects`)
+            console.log(result.data)
+            setProjects(result.data)
         }
     }, [])
 
     const getProjects = async () => {
-        let result = await axios.get(`${host}/getProjects`)
+        // let result = await axios.get(`${host}/getProjects`)
         // console.log(result.data)
-        setProjects(result.data)
+        // setProjects(result.data)
     }
 
     const passwordCheckBox = () => {
@@ -123,7 +125,7 @@ const Project = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img draggable="false" className='invert lg:hidden flex  mt-5' src="./decor.png" alt="" />
+                                            <img draggable="false" className='invert lg:hidden flex m-auto mt-5' src="./decor.png" alt="" />
                                         </span>
                                     )
                                 })}
