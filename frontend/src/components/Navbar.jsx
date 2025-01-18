@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Social.css"
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("");
