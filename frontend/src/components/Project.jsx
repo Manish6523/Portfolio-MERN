@@ -97,8 +97,8 @@ const Project = () => {
                             <div className='w-[90%] bg-red-4000 mx-auto flex flex-wrap justify-center md:gap-8 gap-4 my-10'>
                                 {projects.map((e, index) => {
                                     return (
-                                        <>
-                                            <div key={index} className="flip-card overflow-hidden rounded-lg relative">
+                                        <span key={index}>
+                                            <div className="flip-card overflow-hidden rounded-lg relative">
                                                 <div className="flip-card-inner">
                                                     <div className="flip-card-front bg-black cursor-pointer ">
                                                         {/* decor start */}
@@ -123,8 +123,8 @@ const Project = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img draggable="false" className='invert lg:hidden flex' src="./decor.png" alt="" />
-                                        </>
+                                            <img draggable="false" className='invert lg:hidden flex  mt-5' src="./decor.png" alt="" />
+                                        </span>
                                     )
                                 })}
                             </div> : (
