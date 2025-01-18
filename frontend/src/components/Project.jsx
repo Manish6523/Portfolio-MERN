@@ -23,7 +23,7 @@ const Project = () => {
         const fetchProjects = async () => {
             try {
                 const result = await axios.get(`${host}/getProjects`);
-                console.log(result.data);
+                console.log(`connected to DB successfully`);
                 setProjects(result.data);
             } catch (error) {
                 console.error('Error fetching projects:', error);
