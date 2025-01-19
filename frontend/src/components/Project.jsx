@@ -5,6 +5,12 @@ import axios from "axios"
 
 
 const Project = () => {
+    const config = {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+    };
 
     let envPassword = import.meta.env.VITE_ADMIN_PASSWORD
     let host = import.meta.env.VITE_HOST
@@ -22,7 +28,7 @@ const Project = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const result = await axios.get(`${host}/getProjects`);
+                const result = await axios.get(`${host}/getProjects`, {}, config);
                 console.log(`connected to DB successfully`);
                 setProjects(result.data);
             } catch (error) {
@@ -76,16 +82,21 @@ const Project = () => {
         else if (image == "") {
             setImage("NotFound.png")
         } else {
-            toast.success("Project Added")
             setadminPanel(false)
-            await axios.post(`${host}/addProject`, {
-                name,
-                description,
-                image,
-                githubLink,
-                visitUrl,
-                uses
-            })
+            try {
+                await axios.post(`${host}/addProject`, {
+                    name,
+                    description,
+                    image,
+                    githubLink,
+                    visitUrl,
+                    uses
+                }, config)
+                toast.success("Project Added")
+            } catch (error) {
+                console.error("failed to add project", error)
+                toast.error("Internal server error")
+            }
         }
     }
 
