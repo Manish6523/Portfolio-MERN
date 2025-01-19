@@ -12,7 +12,7 @@ app.options('*', cors());
 // CORS Configuration
 app.use(
     cors({
-        origin: ["*", "http://localhost:3000", 'http://localhost:5173', 'https://sharma-manish.onrender.com', 'https://portfolio-mern-360.onrender.com'], // Allow your frontend origins
+        origin: ["*", "http://localhost:3000", 'http://localhost:5173', "https://sharma-manish.netlify.app", 'https://sharma-manish.onrender.com', 'https://portfolio-mern-360.onrender.com'], // Allow your frontend origins
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
         allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
         credentials: true, // If credentials (cookies) are needed
